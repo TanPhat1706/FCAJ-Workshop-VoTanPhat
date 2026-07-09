@@ -15,21 +15,21 @@
     <title>Proposal :: Internship Report</title>
 
     
-    <link href="/css/nucleus.css?1783493581" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1783493581" rel="stylesheet">
-    <link href="/css/hybrid.css?1783493581" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1783493581" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1783493581" rel="stylesheet">
-    <link href="/css/auto-complete.css?1783493581" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1783493581" rel="stylesheet">
-    <link href="/css/theme.css?1783493581" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1783493581" rel="stylesheet">
+    <link href="/css/nucleus.css?1783611619" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1783611619" rel="stylesheet">
+    <link href="/css/hybrid.css?1783611619" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1783611619" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1783611619" rel="stylesheet">
+    <link href="/css/auto-complete.css?1783611619" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1783611619" rel="stylesheet">
+    <link href="/css/theme.css?1783611619" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1783611619" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1783493581" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1783611619" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1783493581"></script>
+    <script src="/js/jquery-3.3.1.min.js?1783611619"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1783493581"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1783493581"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1783611619"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1783611619"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1783493581"></script>
+<script type="text/javascript" src="/js/search.js?1783611619"></script>
  
   </div>
 
@@ -320,7 +320,7 @@
         "
 >
   <a href="/2-proposal/">
-      2.  Proposal 
+     <b> 2. </b> Proposal 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -347,7 +347,7 @@
             
 <li
   data-nav-id="/4-eventparticipated/4.1-event1/"
-  title="FCAJ Community Day"
+  title="Event 1"
   class="dd-item 
         
         
@@ -355,7 +355,7 @@
         "
 >
   <a href="/4-eventparticipated/4.1-event1/">
-     <b> 4.1. </b> FCAJ Community Day 
+     <b> 4.1. </b> Event 1 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -365,7 +365,7 @@
             
 <li
   data-nav-id="/4-eventparticipated/4.2-event2/"
-  title="FCAJ AWS Cloud Architect"
+  title="Event 2"
   class="dd-item 
         
         
@@ -373,7 +373,7 @@
         "
 >
   <a href="/4-eventparticipated/4.2-event2/">
-     <b> 4.2. </b> FCAJ AWS Cloud Architect 
+     <b> 4.2. </b> Event 2 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -383,7 +383,7 @@
             
 <li
   data-nav-id="/4-eventparticipated/4.3-event3/"
-  title="FCAJ Community Day - June"
+  title="Event 3"
   class="dd-item 
         
         
@@ -391,7 +391,7 @@
         "
 >
   <a href="/4-eventparticipated/4.3-event3/">
-     <b> 4.3. </b> FCAJ Community Day - June 
+     <b> 4.3. </b> Event 3 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -999,7 +999,7 @@
     <br>
     <b> Last Updated </b> <br>
     <i>
-        <font color=orange>08-07-2026</font>
+        <font color=orange>09-07-2026</font>
     </i>
 </left>
 <left>
@@ -1109,71 +1109,88 @@ The platform uses AWS CloudFormation for Infrastructure as Code (IaC) to provisi
 <p><strong>Benefits and Return on Investment</strong>
 The solution establishes a foundational blueprint for engineers to understand and implement enterprise DevOps practices. It completely replaces manual deployment processes with automated Jenkins pipelines, saving significant time and reducing human error. Monthly infrastructure costs are heavily optimized to approximately $45.00 – $60.00 USD by utilizing ECS Fargate Spot and EventBridge Scheduler to power down environments during off-peak hours (saving ~37.5% runtime costs). The break-even value is achieved through immense time savings and the creation of a highly reusable CloudFormation template library.</p>
 <h3 id="3-solution-architecture">3. Solution Architecture</h3>
-<p>The platform employs a serverless and containerized AWS architecture to manage user traffic and application logic. Data is stored in Amazon RDS for SQL Server, backend processing is handled by ECS Fargate, and the frontend is delivered via CloudFront. The architecture is detailed below:</p>
-<h4 id="1-main-request-flow-data-flow">1. Main Request Flow (Data Flow)</h4>
+<p>The platform uses a containerized AWS architecture (ECS Fargate — Serverless Compute) combined with Managed Services to operate the entire system. The Spring Boot backend runs in Docker containers on ECS Fargate (Multi-AZ), the React frontend is stored on a Private S3 bucket and delivered globally via CloudFront (OAC), and data is persisted in Amazon RDS for SQL Server within a Private Subnet. The architecture is divided into <strong>4 main zones</strong> and <strong>2 data flows</strong>:</p>
+<ul>
+<li><strong>Zone 1 — External:</strong> End users, Grafana Cloud (monitoring SaaS), Jenkins Server (local CI/CD).</li>
+<li><strong>Zone 2 — AWS Global Services (outside VPC):</strong> Route 53 (DNS), CloudFront + WAF + ACM (CDN/Security/SSL), S3 (Private Frontend + Media Storage).</li>
+<li><strong>Zone 3 — AWS Region / VPC (10.0.0.0/16):</strong> Internet Gateway, ALB + WAF (Public Subnet), ECS Fargate Multi-AZ (Public Subnet A &amp; B), RDS SQL Server (Private Subnet-Data A), plus supporting services (ECR, CloudWatch, Secrets Manager, SSM Parameter Store, EventBridge Scheduler).</li>
+<li><strong>Zone 4 — Management &amp; CI/CD Pipeline:</strong> Jenkins Server orchestrates build/deploy, Grafana Cloud visualizes metrics.</li>
+</ul>
+<h4 id="1-user-request-flow">1. User Request Flow</h4>
 <pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart LR
-    %% DNS Resolution
+    %% [1] DNS Resolution
     User[&#34;👤 User&#34;] -.-&gt;|&#34;[1] DNS Resolution&#34;| R53[&#34;Amazon Route 53&#34;]
     
-    %% Frontend Flow
-    User --&gt;|&#34;[2a] Web Access&#34;| CF[&#34;CloudFront (w/ WAF)&#34;]
-    CF --&gt;|&#34;OAC&#34;| S3F[&#34;S3 Frontend (Private)&#34;]
+    %% [2a] Frontend Flow — Route 53 → CloudFront
+    R53 --&gt;|&#34;[2a] Route to Frontend&#34;| CF[&#34;CloudFront&#34;]
+    WAF_CF[&#34;AWS WAF (CloudFront)&#34;] -.-&gt;|&#34;[1a] Filter Malicious Traffic&#34;| CF
+    ACM_CF[&#34;ACM (us-east-1)&#34;] -.-&gt;|&#34;SSL/TLS Cert&#34;| CF
+    CF --&gt;|&#34;[1b] OAC Restricted Access&#34;| S3F[&#34;S3 Frontend (Private)&#34;]
     
-    %% API Flow
-    User --&gt;|&#34;[2] API Request&#34;| IGW[&#34;Internet Gateway&#34;]
-    IGW --&gt;|&#34;[3] Route Traffic&#34;| ALB[&#34;ALB (w/ WAF)&#34;]
+    %% [2] API Flow — Route 53 → IGW → ALB
+    R53 --&gt;|&#34;[2] Route to API Backend&#34;| IGW[&#34;Internet Gateway&#34;]
+    IGW --&gt;|&#34;[3] Route API Traffic&#34;| ALB[&#34;Application Load Balancer&#34;]
+    WAF_ALB[&#34;AWS WAF (ALB)&#34;] -.-&gt;|&#34;[3a] Filter Malicious Traffic&#34;| ALB
+    ACM_ALB[&#34;ACM (Region)&#34;] -.-&gt;|&#34;SSL/TLS Cert&#34;| ALB
     
-    %% Backend Compute
-    ALB --&gt;|&#34;[4] Load Balance&#34;| ECS1[&#34;ECS Fargate (AZ-1)&#34;]
-    ALB --&gt;|&#34;[4] Load Balance&#34;| ECS2[&#34;ECS Fargate (AZ-2)&#34;]
+    %% [4] Backend Compute — ALB → ECS (Multi-AZ)
+    ALB --&gt;|&#34;[4] Process Backend Logic&#34;| ECS1[&#34;ECS Fargate (AZ-A)&#34;]
+    ALB --&gt;|&#34;[4] Process Backend Logic&#34;| ECS2[&#34;ECS Fargate (AZ-B)&#34;]
     
-    %% Secrets &amp; DB
-    SSM[&#34;SSM Parameter Store&#34;] -.-&gt;|&#34;[5b] Fetch Config&#34;| ECS1
-    SSM -.-&gt;|&#34;[5b] Fetch Config&#34;| ECS2
-    ECS1 --&gt;|&#34;[6] Read/Write Data&#34;| RDS[&#34;RDS SQL Server&#34;]
+    %% [5a/5b] Secrets &amp; Config
+    SM[&#34;Secrets Manager&#34;] -.-&gt;|&#34;[5a] Fetch Secrets&#34;| ECS1
+    SM -.-&gt;|&#34;[5a] Fetch Secrets&#34;| ECS2
+    SSM[&#34;Systems Manager&#34;] -.-&gt;|&#34;[5b] Fetch Parameters&#34;| ECS1
+    SSM -.-&gt;|&#34;[5b] Fetch Parameters&#34;| ECS2
+    
+    %% [6] Database
+    ECS1 --&gt;|&#34;[6] Read/Write Data&#34;| RDS[&#34;RDS SQL Server (Private Subnet)&#34;]
     ECS2 --&gt;|&#34;[6] Read/Write Data&#34;| RDS
     
-    %% VPC Endpoint &amp; NAT
-    ECS1 --&gt;|&#34;[7a] Upload Media&#34;| VPCE[&#34;S3 VPC Endpoint&#34;]
-    ECS2 --&gt;|&#34;[7a] Upload Media&#34;| VPCE
-    VPCE --&gt; S3M[&#34;S3 Media Storage&#34;]
+    %% [7] Media Upload via VPC Endpoint
+    ECS1 --&gt;|&#34;[7] Upload Media Files&#34;| S3M[&#34;S3 Media Storage&#34;]
+    ECS2 --&gt;|&#34;[7] Upload Media Files&#34;| S3M
     
-    %% Monitoring
-    ECS1 --&gt;|&#34;[8] Push Logs&#34;| CW[&#34;CloudWatch&#34;]
-    CW --&gt;|&#34;[9] Visualize&#34;| Grafana[&#34;Grafana Cloud&#34;]
+    %% [8-9] Monitoring
+    ECS1 --&gt;|&#34;[8] Push Logs &amp; Metrics&#34;| CW[&#34;CloudWatch&#34;]
+    ECS2 --&gt;|&#34;[8] Push Logs &amp; Metrics&#34;| CW
+    CW --&gt;|&#34;[9] Visualize Dashboard&#34;| Grafana[&#34;Grafana Cloud&#34;]
+    
+    %% [D] Cost Optimization
+    EB[&#34;EventBridge Scheduler&#34;] -.-&gt;|&#34;[D] Schedule Start/Stop&#34;| RDS
 </code></pre><h4 id="2-cicd-pipeline-flow">2. CI/CD Pipeline Flow</h4>
 <pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart LR
     Dev[&#34;👨💻 Developer&#34;] --&gt;|&#34;Git Push&#34;| GH[&#34;GitHub&#34;]
-    GH --&gt;|&#34;Trigger&#34;| Jenkins[&#34;Jenkins Server&#34;]
+    GH --&gt;|&#34;Poll SCM&#34;| Jenkins[&#34;Jenkins Server&#34;]
     
-    %% Backend Deployment
-    Jenkins --&gt;|&#34;[A] Build &amp; Push&#34;| ECR[&#34;AWS ECR&#34;]
-    Jenkins --&gt;|&#34;[B] Update Task&#34;| ECS[&#34;ECS Fargate&#34;]
-    ECR -.-&gt;|&#34;Pull Image (via NAT)&#34;| ECS
+    %% Backend Pipeline
+    Jenkins --&gt;|&#34;[A] Build &amp; Push Image&#34;| ECR[&#34;Amazon ECR&#34;]
+    ECR --&gt;|&#34;[B] Pull Docker Image&#34;| ECS[&#34;ECS Fargate&#34;]
     
-    %% Frontend Deployment
-    Jenkins --&gt;|&#34;[C] Sync static files&#34;| S3[&#34;S3 Frontend&#34;]
-    Jenkins --&gt;|&#34;[D] Invalidate Cache&#34;| CF[&#34;CloudFront&#34;]
+    %% Frontend Pipeline
+    Jenkins --&gt;|&#34;Sync static files&#34;| S3[&#34;S3 Frontend (Private)&#34;]
+    Jenkins --&gt;|&#34;[C] Invalidate Cache&#34;| CF[&#34;CloudFront&#34;]
 </code></pre><p><img src="/images/2-Proposal/Minisocial-Architect_final.png" alt="MiniSocial Architecture"></p>
 <p><strong>AWS Services Used</strong></p>
 <ul>
-<li><strong>Amazon VPC &amp; Networking:</strong> Multi-AZ subnets, NAT Gateway, and S3 Gateway Endpoint for secure isolation.</li>
-<li><strong>Amazon ECS Fargate:</strong> Serverless container execution for backend application nodes.</li>
+<li><strong>Amazon VPC &amp; Networking:</strong> Multi-AZ subnets, NAT Gateway, and S3 Gateway Endpoint for secure network isolation.</li>
+<li><strong>Amazon ECS Fargate:</strong> Serverless container execution for backend application nodes (Multi-AZ).</li>
 <li><strong>Amazon RDS for SQL Server:</strong> Managed database service hosted in dedicated private subnets.</li>
-<li><strong>Amazon S3 &amp; CloudFront:</strong> Secure frontend hosting via OAC and global content delivery.</li>
-<li><strong>AWS WAF &amp; ACM:</strong> Enterprise-grade web application firewall protection and automated SSL/TLS certificates.</li>
-<li><strong>Amazon Route 53:</strong> Highly available DNS management.</li>
+<li><strong>Amazon S3 &amp; CloudFront:</strong> Secure frontend hosting via OAC and global content delivery, plus media storage.</li>
+<li><strong>AWS WAF &amp; ACM:</strong> Enterprise-grade web application firewall protecting both CloudFront and ALB, with automated SSL/TLS certificates from AWS Certificate Manager.</li>
+<li><strong>Amazon Route 53:</strong> Highly available DNS management for frontend and API domain routing.</li>
 <li><strong>Amazon ECR &amp; Jenkins:</strong> Secure Docker registry and automated CI/CD pipelines.</li>
-<li><strong>Amazon CloudWatch &amp; EventBridge:</strong> System logging, infrastructure metrics, and automated scheduling.</li>
-<li><strong>AWS Systems Manager Parameter Store</strong>: Secure storage and management of application configuration data and secrets.</li>
+<li><strong>Amazon CloudWatch &amp; EventBridge:</strong> System logging, infrastructure metrics, and automated scheduling (cost optimization via start/stop schedules).</li>
+<li><strong>AWS Secrets Manager:</strong> Secure storage for sensitive secrets (DB passwords, JWT secrets, API keys).</li>
+<li><strong>AWS Systems Manager Parameter Store:</strong> Management of non-sensitive application configuration and environment variables.</li>
 </ul>
 <p><strong>Component Design</strong></p>
 <ul>
-<li><strong>Frontend (Web Interface):</strong> React application built with TypeScript, delivering the user interface through CloudFront.</li>
-<li><strong>Backend (API Layer):</strong> Spring Boot application running in Docker containers on ECS Fargate, handling business logic.</li>
-<li><strong>Data Storage:</strong> Amazon RDS for SQL Server serves as the primary relational database.</li>
-<li><strong>CI/CD Pipeline:</strong> Jenkins servers orchestrate the build, test, and deployment phases using declarative Jenkinsfiles.</li>
-<li><strong>Security &amp; Access:</strong> AWS WAF inspects incoming traffic at the edge and at the ALB level to block malicious requests.</li>
+<li><strong>Frontend (Web Interface):</strong> React application built with TypeScript, delivered through CloudFront with OAC-restricted access to a private S3 bucket.</li>
+<li><strong>Backend (API Layer):</strong> Spring Boot application running in Docker containers on ECS Fargate across 2 Availability Zones, handling business logic with sticky session support for WebSocket.</li>
+<li><strong>Data Storage:</strong> Amazon RDS for SQL Server in a private subnet serves as the primary relational database.</li>
+<li><strong>CI/CD Pipeline:</strong> Jenkins server orchestrates build, test, and deployment — Backend via ECR → ECS, Frontend via S3 → CloudFront invalidation.</li>
+<li><strong>Security &amp; Access:</strong> Dual AWS WAF layers inspect traffic at CloudFront (edge) and ALB (VPC) to block malicious requests. Secrets Manager and SSM Parameter Store manage credentials securely.</li>
 </ul>
 <h3 id="4-technical-implementation">4. Technical Implementation</h3>
 <p><strong>Implementation Phases</strong>
@@ -1247,6 +1264,11 @@ AWS Services (Estimated Monthly):</p>
 <li>A highly reusable, modular CloudFormation blueprint for future enterprise applications.</li>
 <li>A robust training environment for engineers transitioning to AWS Cloud-Native architectures.</li>
 </ul>
+<blockquote>
+<ul>
+<li>Logical Architecture Diagram (Full HD): <a href="https://mini-social-architect.s3.ap-southeast-1.amazonaws.com/Minisocial_Architect_final.png">View details here</a></li>
+</ul>
+</blockquote>
 
 
 
@@ -2049,19 +2071,19 @@ AWS Services (Estimated Monthly):</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1783493581"></script>
-    <script src="/js/perfect-scrollbar.min.js?1783493581"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1783493581"></script>
-    <script src="/js/jquery.sticky.js?1783493581"></script>
-    <script src="/js/featherlight.min.js?1783493581"></script>
-    <script src="/js/highlight.pack.js?1783493581"></script>
+    <script src="/js/clipboard.min.js?1783611619"></script>
+    <script src="/js/perfect-scrollbar.min.js?1783611619"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1783611619"></script>
+    <script src="/js/jquery.sticky.js?1783611619"></script>
+    <script src="/js/featherlight.min.js?1783611619"></script>
+    <script src="/js/highlight.pack.js?1783611619"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1783493581"></script>
-    <script src="/js/learn.js?1783493581"></script>
-    <script src="/js/hugo-learn.js?1783493581"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1783611619"></script>
+    <script src="/js/learn.js?1783611619"></script>
+    <script src="/js/hugo-learn.js?1783611619"></script>
 
-    <link href="/mermaid/mermaid.css?1783493581" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1783493581"></script>
+    <link href="/mermaid/mermaid.css?1783611619" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1783611619"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
