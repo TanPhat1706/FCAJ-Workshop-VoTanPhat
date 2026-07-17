@@ -1,9 +1,9 @@
 ---
 title: "Self-Assessment"
 date: 2026-07-02
-weight: 6
+weight: 7
 chapter: false
-pre: " <b> 6. </b> "
+pre: " <b> 7. </b> "
 ---
 
 During my internship at Amazon Web Services Viet Nam Company Limited from April 17, 2026, to July 30, 2026, I had the invaluable opportunity to learn, practice, and translate my academic foundation into practical capabilities within a world-class corporate environment.

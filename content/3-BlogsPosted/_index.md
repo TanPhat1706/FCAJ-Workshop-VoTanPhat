@@ -1,139 +1,18 @@
-# MiniSocialNetwork
+---
+title: "Published Blogs"
+date: 2024-01-01
+weight: 3
+chapter: false
+pre: " <b> 3. </b> "
+---
 
-![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2-6DB33F?logo=springboot)
-![Java](https://img.shields.io/badge/Java-17-ED8B00?logo=openjdk)
-![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker)
-![License](https://img.shields.io/badge/License-Not%20specified-red)
+This section lists and introduces the technical blog posts compiled and publicly published by the team on the [AWS Study Group VN](https://www.facebook.com/groups/awsstudygroupfcj) community. These posts synthesize production experiences, architectural discussions, and the latest cloud computing updates gathered throughout the project implementation process.
 
-MiniSocialNetwork is a modern full-stack social networking platform designed for campus/community engagement. It combines social features such as authentication, profiles, posts, comments, friendships, real-time chat, notifications, shop/gacha cosmetics, mini-games, and admin moderation in a single integrated experience.
+### [Blog 1: Architectural Discussion on the Mini Social Network Project](3.1-Blog1/)
+This post details the architectural design of the "Mini Social Network" project, which applies a standard 3-Tier Architecture on AWS. The system is logically decoupled into a Data Plane (Data Access & Processing flows) and a Control Plane (Operations & CI/CD flows), highlighting the team's infrastructure isolation and security solutions. The post also includes a valuable Q&A section based on real-world feedback from expert engineers within the AWS community.
 
-## 1. Project Title & Description
+### [Blog 2: Cloud Migration Diary – From a $35 Lesson to a Cost-Optimized Architecture](3.2-Blog2/)
+This post shares the practical journey of migrating a monolithic application from a traditional VPS hosting environment to a robust Cloud-Native architecture on AWS. The content focuses on how the team confronted and overcame classic challenges, such as unexpected NAT Gateway costs, SPA routing issues on Amazon S3, and source code performance bottlenecks. The blog also demonstrates how the team broke down tasks by specialized roles (Ops, UI/UX, Observability, DevSecOps) to optimize the infrastructure.
 
-MiniSocialNetwork is a capstone-style social platform that brings together social interaction and gamification. The project is built with a React frontend, a Spring Boot backend, and SQL Server for persistence, with Docker support for fast local deployment.
-
-## 2. Core Features
-
-- User authentication and authorization with JWT
-- User profile management and avatar/cosmetic customization
-- Social feed with posts, comments, reactions, and media upload
-- Friendship system with requests, approvals, and suggestions
-- Real-time chat and notifications via WebSocket
-- Shop, gacha, and cosmetic inventory system
-- Mini-games such as Snake and Tic-Tac-Toe
-- Admin dashboard for managing users, posts, and blacklist keywords
-
-## 3. Tech Stack
-
-### Frontend
-- React 19 + TypeScript
-- Vite
-- Material UI
-- Axios, React Router, SockJS/STOMP
-
-### Backend
-- Java 17
-- Spring Boot 3.2
-- Spring Security, Spring Data JPA, Validation
-- JWT Authentication
-- WebSocket for real-time messaging
-- Swagger / OpenAPI
-
-### Database
-- Microsoft SQL Server
-- Dockerized database initialization via SQL scripts
-
-### DevOps
-- Docker Compose
-- Jenkins pipeline support
-- Nginx for frontend serving
-
-## 4. Folder Structure
-
-```text
-mini-social-network/
-├── backend/           # Spring Boot API service
-│   ├── src/main/java/  # Application code
-│   ├── src/main/resources/  # Config files and properties
-│   └── pom.xml        # Maven dependencies and build config
-├── frontend/          # React + Vite client app
-│   ├── src/           # Components, pages, hooks, API wrappers
-│   └── package.json   # Frontend dependencies and scripts
-├── db/                # SQL scripts and DB setup files
-├── docker-compose.yml # Container orchestration for full stack
-└── README.md          # Project documentation
-```
-
-## 5. Getting Started
-
-### Prerequisites
-
-- Docker Desktop
-- Node.js 20+ and npm
-- JDK 17
-- Maven (or use the provided Maven wrapper)
-
-### Environment Variables
-
-The backend uses environment variables for database, JWT, mail, file upload, and AWS/S3 configuration. A typical setup looks like:
-
-```env
-SPRING_DATASOURCE_URL=jdbc:sqlserver://localhost:1433;databaseName=MiniSocialDB;encrypt=true;trustServerCertificate=true
-SPRING_DATASOURCE_USERNAME=pht
-SPRING_DATASOURCE_PASSWORD=141204
-JWT_SECRET=your-secret-key
-JWT_EXPIRATION=3600000
-JWT_REFRESH_EXPIRATION=604800000
-CORS_ALLOWED_ORIGINS=http://localhost:5173
-SERVER_PORT=8080
-```
-
-For the frontend, set the API base URL before running locally:
-
-```env
-VITE_API_BASE_URL=http://localhost:8081
-VITE_API_URL=http://localhost:8081/api/auth
-VITE_API_TIMEOUT=10000
-```
-
-### Installation & Running
-
-#### Option 1: Run with Docker Compose
-
-```bash
-docker compose up --build
-```
-
-Available services:
-- Frontend: http://localhost:5173
-- Backend API: http://localhost:8081
-- SQL Server: localhost:1433
-
-#### Option 2: Run locally
-
-Backend:
-
-```bash
-cd backend
-./mvnw spring-boot:run
-```
-
-Frontend:
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-## 6. API Documentation
-
-API documentation is available through Swagger UI once the backend is running:
-
-- Swagger UI: http://localhost:8081/swagger-ui/index.html
-- OpenAPI JSON: http://localhost:8081/v3/api-docs
-
-## 7. Contributors & License
-
-- Contributors: HUTECH Capstone Team and contributors
-- License: No license file has been added yet. Add a LICENSE file if you plan to distribute or reuse this project publicly.
+### [Blog 3: Amazon ECS Launches High-Resolution Metrics, Speeding Up Service Auto Scaling by 4x](3.3-Blog3/)
+Based on the latest technological updates from AWS, this post provides an in-depth analysis of the newly released high-resolution metrics feature (20-second granularity) for Amazon ECS. It explains the core mechanism behind this breakthrough that reduces scale-out delay by up to 76% (from 363 seconds down to 86 seconds), enabling cloud systems to react instantly to traffic spikes while cutting down on capacity padding waste and compute costs.

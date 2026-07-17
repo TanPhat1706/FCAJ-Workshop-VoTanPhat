@@ -1,9 +1,9 @@
 ---
 title: "Tự đánh giá"
 date: 2026-07-02
-weight: 6
+weight: 7
 chapter: false
-pre: " <b> 6. </b> "
+pre: " <b> 7. </b> "
 ---
 
 Trong suốt thời gian thực tập tại Công ty TNHH Amazon Web Services Việt Nam từ ngày 17/04/2026 đến 30/07/2026, em đã có cơ hội quý giá để học hỏi, rèn luyện và chuyển hóa những kiến thức nền tảng tại trường thành năng lực thực chiến trong một môi trường doanh nghiệp chuẩn quốc tế.
