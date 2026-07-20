@@ -1,4 +1,4 @@
-baseURL = 'https://tanphat1706.github.io/FCAJ-Workshop-VoTanPhat/'
+baseURL = 'localhost'
 relativeURLs = true
 canonifyURLs = true
 defaultContentLanguage = "en"
